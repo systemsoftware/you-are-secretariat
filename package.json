@@ -1,0 +1,15 @@
+{
+  "name": "you-are-secretariat",
+  "version": "1.0.0",
+  "description": "The mirror from Bojack Horseman that tells you that you are Secretariat.",
+  "license": "Unlicense",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "positron.js": "^1.1.4"
+  }
+}

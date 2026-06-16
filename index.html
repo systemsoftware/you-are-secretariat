@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Web Camera Feed</title>
+</head>
+<style>
+
+    @font-face {
+        font-family: 'Varsity';
+        src: url('./varsity-team.bold.otf') format('opentype');
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+    }
+    video {
+        width: 100%;
+        height: auto;
+        border: none;
+        border-radius: 8px;
+        background-color: #000;
+        height: 100vh;
+        object-fit: cover;
+        outline: none;
+    }
+
+    .topText {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    }
+
+    .bottomText {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    }
+
+    * {
+        font-family: 'Varsity', sans-serif;
+        font-size: 50px !important;
+    }
+</style>
+<body>
+</body> 
+<div class="topText">YOU ARE</div>
+    <video id="webcam" autoplay playsinline ></video>
+    <div class="bottomText">SECRETARIAT</div>
+
+    <script>
+        const videoElement = document.getElementById('webcam');
+
+        const constraints = {
+            video: { width: 1280, height: 720, facingMode: "user" }
+        };
+
+        async function startCamera() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia(constraints);
+                videoElement.srcObject = stream;
+            } catch (error) {
+                console.error("Camera access denied or unavailable:", error);
+            }
+        }
+
+        startCamera();
+    </script>
+</body>
+</html>
